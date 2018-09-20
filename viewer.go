@@ -1,7 +1,9 @@
 package logger
 
 import (
+	"fmt"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 )
@@ -23,6 +25,8 @@ type Viewer struct {
 
 // ForEach will iterate through all the available logs
 func (v *Viewer) ForEach(fn func(key string) (err error)) (err error) {
+	// Set expected value as the current directory and name with a tailing period
+	expected := fmt.Sprintf("%s.", path.Join(v.dir, v.name))
 	// Walk through each file in the set directory
 	err = filepath.Walk(v.dir, func(filepath string, info os.FileInfo, ierr error) (err error) {
 		// If we're looking at a directory, we're definitely not looking at a log file
@@ -32,7 +36,7 @@ func (v *Viewer) ForEach(fn func(key string) (err error)) (err error) {
 		}
 
 		// Ensure Iterating log is a target log
-		if strings.Index(filepath, v.name) == -1 {
+		if strings.Index(filepath, expected) != 0 {
 			// Not a target log, return
 			return
 		}
