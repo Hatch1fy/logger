@@ -3,6 +3,7 @@ package logger
 import (
 	"bufio"
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"os"
 	"path"
@@ -261,6 +262,17 @@ func (l *Logger) Log(msg []byte) (err error) {
 func (l *Logger) LogString(msg string) (err error) {
 	// Convert message to bytes and pass to l.Log
 	return l.Log([]byte(msg))
+}
+
+// LogJSON will log a generic value as a JSON message
+func (l *Logger) LogJSON(value interface{}) (err error) {
+	var msg []byte
+	if msg, err = json.Marshal(value); err != nil {
+		return
+	}
+
+	// Convert message to bytes and pass to l.Log
+	return l.Log(msg)
 }
 
 // Flush will manually flush the buffer bytes to disk
