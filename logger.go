@@ -139,18 +139,24 @@ func (l *Logger) flush() (err error) {
 	return l.f.Sync()
 }
 
+// rotationLoop will manage a rotation loop to call rotate on a set interval
 func (l *Logger) rotationLoop() {
 	var err error
 	for {
+		// Sleep for rotation interval
 		time.Sleep(l.rotateInterval)
+		// Attempt to rotate underlying log file
 		err = l.rotate()
 
 		switch err {
 		case nil:
+			// Err is nil, nothing to see here
 		case errors.ErrIsClosed:
+			// Instance of logger is closed, we can bail out completely
 			return
 
 		default:
+			// We encountered an unexpected error, print to stdout
 			fmt.Printf("logger :: %s :: error rotating file: %v", l.name, err)
 		}
 	}
@@ -168,10 +174,12 @@ func (l *Logger) rotate() (err error) {
 		return errors.ErrIsClosed
 	}
 
+	// Don't set new file if count is zero
 	if l.count == 0 {
 		return
 	}
 
+	// Set a new underlying log file
 	return l.setFile()
 }
 
@@ -286,7 +294,9 @@ func (l *Logger) SetNumLines(n int) {
 // SetRotateInterval will set the rotation interval timing of a log file
 func (l *Logger) SetRotateInterval(duration time.Duration) (err error) {
 	var wasUnset bool
+	// Ensure duration is isn't set to zero
 	if duration == 0 {
+		// We do not like rotation intervals of zero, return
 		err = ErrInvalidRotationInterval
 		return
 	}
@@ -323,6 +333,7 @@ func (l *Logger) Close() (err error) {
 
 	// Acquire lock to ensure all writers have completed
 	l.mu.Lock()
+	// Defer the release of our lock
 	defer l.mu.Unlock()
 
 	// Close underlying logger file
