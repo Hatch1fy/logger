@@ -63,6 +63,8 @@ type Logger struct {
 	// Duration before rotation (defaults to unlimited)
 	rotateInterval time.Duration
 
+	onRotate RotateFn
+
 	// Current line count
 	count int
 
@@ -104,13 +106,8 @@ func (l *Logger) closeFile() (err error) {
 		return
 	}
 
-	if l.count == 0 {
-		// This file is empty, let's clean it up when we're finished closing
-		// Get name now to avoid calling a nil pointer later
-		name := l.f.Name()
-		// Defer the removal of the current file (this will allow the flushing and closing to complete)
-		defer os.Remove(name)
-	}
+	// Get current file's name, we need this for post-close actions
+	name := l.f.Name()
 
 	// Flush contents
 	if err = l.flush(); err != nil {
@@ -126,6 +123,15 @@ func (l *Logger) closeFile() (err error) {
 	l.f = nil
 	// Set buffer to nil
 	l.w = nil
+
+	if l.count == 0 {
+		// File has no contents, remove file within a gorotuine
+		go os.Remove(name)
+	} else if l.onRotate != nil {
+		// File has been rotated & onRotate func is set, call on on rotate func within a gorotuine
+		go l.onRotate(name)
+	}
+
 	return
 }
 
@@ -335,6 +341,16 @@ func (l *Logger) SetRotateInterval(duration time.Duration) (err error) {
 	}
 
 	return
+}
+
+// SetRotateFn will set the function to be called on rotations
+func (l *Logger) SetRotateFn(fn RotateFn) {
+	// Acquire lock
+	l.mu.Lock()
+	// Defer the release of our lock
+	defer l.mu.Unlock()
+	// Set onRotation value as provided fn
+	l.onRotate = fn
 }
 
 // Close will attempt to close an instance of logger

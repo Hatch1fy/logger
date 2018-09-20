@@ -34,3 +34,6 @@ func parseLine(lineBytes []byte) (ts time.Time, log []byte, err error) {
 	log = lineBytes[separator+1:]
 	return
 }
+
+// RotateFn is called during rotations
+type RotateFn func(filename string)
