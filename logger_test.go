@@ -77,6 +77,7 @@ func TestTimeRotation(t *testing.T) {
 		if r, err = NewReader(key); err != nil {
 			return
 		}
+		defer r.Close()
 
 		if err = r.ForEach(func(ts time.Time, log []byte) (err error) {
 			lineCount++
@@ -89,6 +90,7 @@ func TestTimeRotation(t *testing.T) {
 		}); err != nil {
 			return
 		}
+
 		logCount++
 		return
 	}); err != nil {
