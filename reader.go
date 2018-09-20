@@ -32,7 +32,7 @@ func (r *Reader) ForEach(fn func(ts time.Time, log []byte) error) (err error) {
 	// Acquire reader lock
 	r.mu.Lock()
 	// Defer the release of the reader lock
-	defer r.mu.Lock()
+	defer r.mu.Unlock()
 
 	// If our file is nil, this reader has been closed
 	if r.f == nil {
@@ -72,7 +72,7 @@ func (r *Reader) Close() (err error) {
 	// Acquire reader lock
 	r.mu.Lock()
 	// Defer the release of the reader lock
-	defer r.mu.Lock()
+	defer r.mu.Unlock()
 
 	// If our file is nil, this reader has already been closed
 	if r.f == nil {
