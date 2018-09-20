@@ -52,14 +52,20 @@ type Logger struct {
 	f  *os.File
 	w  *bufio.Writer
 
-	dir  string
+	// Log directory
+	dir string
+	// Log name
 	name string
 
-	numLines       int
+	// Number of lines before rotation (defaults to unlimited)
+	numLines int
+	// Duration before rotation (defaults to unlimited)
 	rotateInterval time.Duration
 
+	// Current line count
 	count int
 
+	// Closed state
 	closed atoms.Bool
 }
 
@@ -98,7 +104,10 @@ func (l *Logger) closeFile() (err error) {
 	}
 
 	if l.count == 0 {
+		// This file is empty, let's clean it up when we're finished closing
+		// Get name now to avoid calling a nil pointer later
 		name := l.f.Name()
+		// Defer the removal of the current file (this will allow the flushing and closing to complete)
 		defer os.Remove(name)
 	}
 
@@ -131,8 +140,19 @@ func (l *Logger) flush() (err error) {
 }
 
 func (l *Logger) rotationLoop() {
+	var err error
 	for {
 		time.Sleep(l.rotateInterval)
+		err = l.rotate()
+
+		switch err {
+		case nil:
+		case errors.ErrIsClosed:
+			return
+
+		default:
+			fmt.Printf("logger :: %s :: error rotating file: %v", l.name, err)
+		}
 	}
 }
 
