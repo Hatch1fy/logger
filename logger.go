@@ -315,7 +315,7 @@ func (l *Logger) SetNumLines(n int) {
 // SetRotateInterval will set the rotation interval timing of a log file
 func (l *Logger) SetRotateInterval(duration time.Duration) (err error) {
 	var wasUnset bool
-	// Ensure duration is isn't set to zero
+	// Ensure duration isn't set to zero
 	if duration == 0 {
 		// We do not like rotation intervals of zero, return
 		err = ErrInvalidRotationInterval
