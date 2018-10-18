@@ -37,3 +37,6 @@ func parseLine(lineBytes []byte) (ts time.Time, log []byte, err error) {
 
 // RotateFn is called during rotations
 type RotateFn func(filename string)
+
+// Handler is the function used when handling a log line
+type Handler func(ts time.Time, log []byte) error
