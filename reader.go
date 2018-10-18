@@ -11,13 +11,20 @@ import (
 
 // NewReader will return a new reader
 func NewReader(filename string) (rp *Reader, err error) {
-	var r Reader
-	if r.f, err = os.Open(filename); err != nil {
+	var f *os.File
+	if f, err = os.Open(filename); err != nil {
 		return
 	}
 
-	rp = &r
+	rp = newReader(f)
 	return
+}
+
+// newReader will return a new reader
+func newReader(f *os.File) (rp *Reader) {
+	var r Reader
+	r.f = f
+	return &r
 }
 
 // Reader will read log files
@@ -27,13 +34,7 @@ type Reader struct {
 	f *os.File
 }
 
-// ForEach will iterate through each log line
-func (r *Reader) ForEach(fn func(ts time.Time, log []byte) error) (err error) {
-	// Acquire reader lock
-	r.mu.Lock()
-	// Defer the release of the reader lock
-	defer r.mu.Unlock()
-
+func (r *Reader) forEach(offset int64, fn Handler) (err error) {
 	// If our file is nil, this reader has been closed
 	if r.f == nil {
 		// Reader is closed, return
@@ -49,6 +50,7 @@ func (r *Reader) ForEach(fn func(ts time.Time, log []byte) error) (err error) {
 	// Create a new scanner
 	s := bufio.NewScanner(r.f)
 
+	var cnt int64
 	for s.Scan() {
 		var (
 			ts  time.Time
@@ -60,8 +62,28 @@ func (r *Reader) ForEach(fn func(ts time.Time, log []byte) error) (err error) {
 			return
 		}
 
+		if cnt++; cnt <= offset {
+			continue
+		}
+
 		// Pass timestamp and log bytes to provided iterating func
-		fn(ts, log)
+		if err = fn(ts, log); err != nil {
+			break
+		}
+	}
+
+	return
+}
+
+// ForEach will iterate through each log line
+func (r *Reader) ForEach(offset int64, fn Handler) (err error) {
+	// Acquire reader lock
+	r.mu.Lock()
+	// Defer the release of the reader lock
+	defer r.mu.Unlock()
+
+	if err = r.forEach(offset, fn); err == Break {
+		err = nil
 	}
 
 	return

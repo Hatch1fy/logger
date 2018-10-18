@@ -57,7 +57,7 @@ func TestReader(t *testing.T) {
 	}
 	defer r.Close()
 
-	if err = r.ForEach(func(ts time.Time, log []byte) (err error) {
+	if err = r.ForEach(0, func(ts time.Time, log []byte) (err error) {
 		lineCount++
 		expected := fmt.Sprintf("#%d", lineCount)
 		if strLog := string(log); strLog != expected {
