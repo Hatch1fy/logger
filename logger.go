@@ -19,6 +19,9 @@ const (
 	ErrMessageContainsNewline = errors.Error("message contains newline, which is not a valid character")
 	// ErrInvalidRotationInterval is returned when a rotation interval is set to zero
 	ErrInvalidRotationInterval = errors.Error("rotation interval cannot be zero")
+
+	// Break will break a ForEach loop early and still yield a nil error
+	Break = errors.Error("break")
 )
 
 const (
