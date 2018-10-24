@@ -29,6 +29,10 @@ func (v *Viewer) ForEach(fn func(key string) (err error)) (err error) {
 	expected := fmt.Sprintf("%s.", path.Join(v.dir, v.name))
 	// Walk through each file in the set directory
 	err = filepath.Walk(v.dir, func(filepath string, info os.FileInfo, ierr error) (err error) {
+		if ierr != nil {
+			return
+		}
+
 		// If we're looking at a directory, we're definitely not looking at a log file
 		if info.IsDir() {
 			// This is a directory, return
