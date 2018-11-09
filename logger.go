@@ -61,6 +61,9 @@ type Logger struct {
 	// Log name
 	name string
 
+	// Current filename
+	filename string
+
 	// Number of lines before rotation (defaults to unlimited)
 	numLines int
 	// Duration before rotation (defaults to unlimited)
@@ -89,8 +92,10 @@ func (l *Logger) setFile() (err error) {
 		return
 	}
 
+	l.filename = l.getFilename()
+
 	// Open a file with our directory, name, and current timestamp
-	if l.f, err = os.OpenFile(l.getFilename(), loggerFlag, 0644); err != nil {
+	if l.f, err = os.OpenFile(l.filename, loggerFlag, 0644); err != nil {
 		return
 	}
 
@@ -354,6 +359,15 @@ func (l *Logger) SetRotateFn(fn RotateFn) {
 	defer l.mu.Unlock()
 	// Set onRotation value as provided fn
 	l.onRotate = fn
+}
+
+// Filename will return the current filename
+func (l *Logger) Filename() (filename string) {
+	l.mu.Lock()
+	defer l.mu.Unlock()
+
+	filename = l.filename
+	return
 }
 
 // Close will attempt to close an instance of logger
