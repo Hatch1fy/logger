@@ -135,6 +135,7 @@ func (l *Logger) closeFile() (err error) {
 		go l.onRotate(name)
 	}
 
+	l.count = 0
 	return
 }
 
