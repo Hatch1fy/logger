@@ -12,15 +12,15 @@ import (
 	"github.com/Hatch1fy/cron"
 	"github.com/Hatch1fy/errors"
 	"github.com/Hatch1fy/snapshotter"
-	"github.com/PathDNA/atoms"
-	"github.com/missionMeteora/journaler"
+	"github.com/hatchify/atoms"
+	"github.com/hatchify/scribe"
 )
 
 // NewImporter will return a new importer
 func NewImporter(dir, name string, be snapshotter.Backend, importInterval time.Duration, fn Handler) (ip *Importer, err error) {
 	var i Importer
 	i.be = be
-	i.out = journaler.New("Importer", name)
+	i.out = scribe.New("Importer :: " + name)
 	i.dir = dir
 	i.name = name
 
@@ -41,7 +41,7 @@ type Importer struct {
 	// Data backend
 	be snapshotter.Backend
 	// Output logger
-	out *journaler.Journaler
+	out *scribe.Scribe
 
 	// Target directory
 	dir string
@@ -99,7 +99,7 @@ func (i *Importer) importJob() {
 	case io.EOF:
 
 	default:
-		i.out.Error("Error importing: %v", err)
+		i.out.Errorf("Error importing: %v", err)
 	}
 }
 

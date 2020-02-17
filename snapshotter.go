@@ -8,7 +8,7 @@ import (
 
 	"github.com/Hatch1fy/errors"
 	"github.com/Hatch1fy/snapshotter"
-	"github.com/PathDNA/atoms"
+	"github.com/hatchify/atoms"
 )
 
 // NewSnapshotter will return a new instance of Snapshotter
