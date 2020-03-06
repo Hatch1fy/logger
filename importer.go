@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/itsmontoya/mum"
-
 	"github.com/Hatch1fy/cron"
 	"github.com/Hatch1fy/errors"
 	"github.com/Hatch1fy/snapshotter"
+
 	"github.com/hatchify/atoms"
+	"github.com/hatchify/mum"
 	"github.com/hatchify/scribe"
 )
 
