@@ -6,10 +6,10 @@ github.com/Hatch1fy/errors v0.3.0 h1:KylivctV7WFButh5rYOSHJUTi2gcalRgsGkAfFk1FsY
 github.com/Hatch1fy/errors v0.3.0/go.mod h1:SJFCeScmERvwtYMG7EU24Fe0KfXmiIs7tNlcIl0STKk=
 github.com/Hatch1fy/pgutils v0.3.1 h1:Scaaz+0a5JpEcj1Sa5WaHHCGyCv8/+AuCSHiGFzf6sw=
 github.com/Hatch1fy/pgutils v0.3.1/go.mod h1:eATbgMrxlnFUEftwYorGR4/BAWbr1fH5xkVVqpu4YnA=
-github.com/Hatch1fy/snapshotter v0.3.2 h1:XKzA6JkZiI4EfO4zoWyALx5LE9NdyaMhrEQDvVB1+KA=
-github.com/Hatch1fy/snapshotter v0.3.2/go.mod h1:h052xNhThicYnhHtSxj2I6wWa6npGE1D8Uzx6ZoHOkc=
-github.com/aws/aws-sdk-go v1.29.24 h1:KOnds/LwADMDBaALL4UB98ZR+TUR1A1mYmAYbdLixLA=
-github.com/aws/aws-sdk-go v1.29.24/go.mod h1:1KvfttTE3SPKMpo8g2c6jL3ZKfXtFvKscTgahTma5Xg=
+github.com/Hatch1fy/snapshotter v0.3.3 h1:XumlP/uhfexXnzEnx00ud8F/D2x59hLAg3p6s/dtmTw=
+github.com/Hatch1fy/snapshotter v0.3.3/go.mod h1:9jHqEa/gUDyBXwSkUXPJ0srIDvsexBtoFJmOUkmf0bk=
+github.com/aws/aws-sdk-go v1.29.25 h1:03yt6K6vCxfxFHT7mXGqFeISsNDE27LO2u+5AQBnTzQ=
+github.com/aws/aws-sdk-go v1.29.25/go.mod h1:1KvfttTE3SPKMpo8g2c6jL3ZKfXtFvKscTgahTma5Xg=
 github.com/boltdb/bolt v1.3.1 h1:JQmyP4ZBrce+ZQu0dY660FMfatumYDLun9hBCUVIkF4=
 github.com/boltdb/bolt v1.3.1/go.mod h1:clJnj/oiGkjum5o1McbSZDSLxVThjynRyGBgiAx27Ps=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
