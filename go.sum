@@ -23,6 +23,8 @@ github.com/hatchify/colors v0.3.0 h1:S3n4JBQSv3u5nZ36vM9+PJZpCyRbdYlZLjOlyE8v2as
 github.com/hatchify/colors v0.3.0/go.mod h1:t0952Ef1zDFMVTCkOwhrdJS9ToVWTdcJ3PWCHZADLuU=
 github.com/hatchify/mum v0.3.0 h1:Qw6U5KT1O5SyHsef3wtOSDOcG8buyAH4BszSpR4dhRU=
 github.com/hatchify/mum v0.3.0/go.mod h1:LS55U1uM5adYzITs6AT/T0yakvSLlsbkBelMQYmicsg=
+github.com/hatchify/mum v0.3.1 h1:zetwJ0WRhXjWCPjzMFf247H4qSD29ClIVYRdliBXP/s=
+github.com/hatchify/mum v0.3.1/go.mod h1:ASdMUCHzLLxyVADzumYEI6zuE3VAoAhsWHF05ehjON4=
 github.com/hatchify/scribe v0.3.1 h1:LF3BZH5TmHpz+jo13u2Cl0QefooBEtwpMTCmXTgdh+E=
 github.com/hatchify/scribe v0.3.1/go.mod h1:DK3sI3cjOM1X2MVrqXHF621kCZJrm+YjbCnYGNcj50E=
 github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af h1:pmfjZENx5imkbgOkpRUYLnmbU7UEFbjtDA2hxJ1ichM=
