@@ -8,6 +8,8 @@ github.com/Hatch1fy/pgutils v0.4.78 h1:F10Coq0GtwVPN4x35Vqa8Wdf1RLG+2g/hCvZRq1bT
 github.com/Hatch1fy/pgutils v0.4.78/go.mod h1:26t+daF1M9kKyXVhx/O6V+A6tB2KjgvrzWjucyy92Ag=
 github.com/Hatch1fy/snapshotter v0.4.80 h1:XPMnkGdysJ8Pz/3w8kUGCMnbA+liu2PiWOnsopz6t4Y=
 github.com/Hatch1fy/snapshotter v0.4.80/go.mod h1:P3ycma2sdXIptbR+rlmdKv+6wGupljrQgKSuOd1kcI8=
+github.com/Hatch1fy/snapshotter v0.4.81 h1:2G7IvyshuPFIgEN3VaK2IPdwS2V9IO/ieeNpTEfvFok=
+github.com/Hatch1fy/snapshotter v0.4.81/go.mod h1:P3ycma2sdXIptbR+rlmdKv+6wGupljrQgKSuOd1kcI8=
 github.com/aws/aws-sdk-go v1.29.32 h1:o4I8Qc+h9ht8NXvTHeXZH3EmtSUZ/PC0bg9Wawr+aTA=
 github.com/aws/aws-sdk-go v1.29.32/go.mod h1:1KvfttTE3SPKMpo8g2c6jL3ZKfXtFvKscTgahTma5Xg=
 github.com/boltdb/bolt v1.3.1 h1:JQmyP4ZBrce+ZQu0dY660FMfatumYDLun9hBCUVIkF4=
