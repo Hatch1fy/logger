@@ -9,7 +9,7 @@ import (
 
 	"github.com/Hatch1fy/cron"
 	"github.com/Hatch1fy/errors"
-	"github.com/Hatch1fy/snapshotter"
+	"github.com/gdbu/snapshotter"
 
 	"github.com/hatchify/atoms"
 	"github.com/hatchify/mum"

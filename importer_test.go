@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/Hatch1fy/errors"
-	"github.com/Hatch1fy/snapshotter/backends"
+	"github.com/gdbu/snapshotter/backends"
 )
 
 const errTestFull = errors.Error("disk is full")

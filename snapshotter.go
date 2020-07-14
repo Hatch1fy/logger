@@ -7,7 +7,7 @@ import (
 	"sync"
 
 	"github.com/Hatch1fy/errors"
-	"github.com/Hatch1fy/snapshotter"
+	"github.com/gdbu/snapshotter"
 	"github.com/hatchify/atoms"
 )
 
