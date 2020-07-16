@@ -1,4 +1,4 @@
-module github.com/Hatch1fy/logger
+module github.com/gdbu/logger
 
 go 1.14
 
