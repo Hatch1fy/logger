@@ -1,4 +1,4 @@
-module github.com/gdbu/logger
+module github.com/Hatch1fy/logger
 
 go 1.14
 
@@ -10,5 +10,3 @@ require (
 	github.com/hatchify/mum v0.4.78
 	github.com/hatchify/scribe v0.4.78
 )
-
-// *** Separate Local Deps *** \\
