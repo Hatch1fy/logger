@@ -2,8 +2,6 @@ github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Hatch1fy/cron v0.4.80 h1:4/qX1Y7xGaN0EyrjZN9Z3MpJMfsOrgsgPz4iQsXEwiY=
 github.com/Hatch1fy/cron v0.4.80/go.mod h1:srziZhU5rAzVXoUSkVkzq3iZOk+u+Y7pV3nL+dXN9L4=
-github.com/Hatch1fy/errors v0.4.80 h1:LBr5Elytx6npBlF/36KTamC6I7h6VqkOVkRkbIdj3xY=
-github.com/Hatch1fy/errors v0.4.80/go.mod h1:SJFCeScmERvwtYMG7EU24Fe0KfXmiIs7tNlcIl0STKk=
 github.com/Hatch1fy/pgutils v0.4.84 h1:udlBolmcskb+6fKlFrnJBGAfU+QlP0TcYjLquoXagJk=
 github.com/Hatch1fy/pgutils v0.4.84/go.mod h1:1JGJrN/NZG7KEE7U7xdEvAEvcnNsqULYzD4OkqqaCiI=
 github.com/aws/aws-sdk-go v1.33.6 h1:YLoUeMSx05kHwhS+HLDSpdYYpPzJMyp6hn1cWsJ6a+U=
@@ -22,8 +20,8 @@ github.com/hatchify/colors v0.4.79 h1:E7LXqZVYDFNaTcQGxlBSfEKQ2rByeAUW84uKkat3Ao
 github.com/hatchify/colors v0.4.79/go.mod h1:t0952Ef1zDFMVTCkOwhrdJS9ToVWTdcJ3PWCHZADLuU=
 github.com/hatchify/errors v0.4.82 h1:o7eB9r1X3Sx7PBRRXMCaAm+vXcoQLE4ZOesIv4oK36Q=
 github.com/hatchify/errors v0.4.82/go.mod h1:niCrsPjs0fFes147TgJ0LSUVdtavQTUvBxNoJm9Vew0=
-github.com/hatchify/mum v0.4.82 h1:JWasUIPXPSTVzg3rURG+zFmyHdIyO6ZgsYPK4/VTtvU=
-github.com/hatchify/mum v0.4.82/go.mod h1:8BFHpgNDhpbncKFZhtUPW7wbeDkx6wVVF2ZGozf4dC0=
+github.com/hatchify/mum v0.4.83 h1:WY6rxl1TKLabIwS4oYvtBLlLJlx1pJ2c11eCC7fizgQ=
+github.com/hatchify/mum v0.4.83/go.mod h1:8ZYiCydXZJetLKggDzCau99zEYIa0jnk8ASsSun2ifo=
 github.com/hatchify/scribe v0.4.85 h1:WAk+15H9vS107uM4SOq1+/0H3rjsC6YuCMn0+kaeOBE=
 github.com/hatchify/scribe v0.4.85/go.mod h1:Z8YLt9euurwMOwav9pqQrsMCOodHv6/LZ7IaltMykgQ=
 github.com/jmespath/go-jmespath v0.3.0 h1:OS12ieG61fsCg5+qLJ+SsW9NicxNkg3b25OyT2yCeUc=
