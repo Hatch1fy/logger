@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/Hatch1fy/errors"
 	"github.com/gdbu/snapshotter"
 	"github.com/hatchify/atoms"
+	"github.com/hatchify/errors"
 )
 
 // NewSnapshotter will return a new instance of Snapshotter
